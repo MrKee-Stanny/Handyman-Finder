@@ -36,7 +36,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
         if (await firebaseAuthObject.currentUser != null) {
           currentFirebaseUser = firebaseAuthObject.currentUser;
 
-            // home page
+            //sends the user to home page
             Navigator.push(
                 context, MaterialPageRoute(builder: (c) => MainScreen()));
           

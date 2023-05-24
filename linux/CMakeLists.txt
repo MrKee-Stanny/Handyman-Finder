@@ -7,7 +7,8 @@ project(runner LANGUAGES CXX)
 set(BINARY_NAME "handyman_finder")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
-set(APPLICATION_ID "com.example.handyman_finder")
+# set(APPLICATION_ID "com.example.handyman_finder")
+set(APPLICATION_ID "com.handyman.android")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

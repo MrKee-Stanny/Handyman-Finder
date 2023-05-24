@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "312991482828",
-    "project_id": "handyman-finder-5dfd3",
-    "storage_bucket": "handyman-finder-5dfd3.appspot.com"
+    "project_number": "40927759081",
+    "project_id": "handyman-v1-ecc91",
+    "storage_bucket": "handyman-v1-ecc91.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:312991482828:android:709a329ba5f55e1512d369",
+        "mobilesdk_app_id": "1:40927759081:android:7686537a5ef5cfb2927e78",
         "android_client_info": {
-          "package_name": "com.example.handyman"
+          "package_name": "com.handyman.android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "312991482828-aejdisq3kut8dmt7v6nrcbhienkk69p4.apps.googleusercontent.com",
+          "client_id": "40927759081-667gt0ip8npfaa1hbv6a2k25gbsacrk9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyANeH53l60P0MJ90ialBWRuMHG-_mjNaWU"
+          "current_key": "AIzaSyDxhWQ55E5TngiMgbTjp-4-XlED3fij-KU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "312991482828-aejdisq3kut8dmt7v6nrcbhienkk69p4.apps.googleusercontent.com",
+              "client_id": "40927759081-667gt0ip8npfaa1hbv6a2k25gbsacrk9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
