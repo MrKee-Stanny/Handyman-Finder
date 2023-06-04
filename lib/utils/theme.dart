@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+// -----------------------Rachel------------------------- 
 final ThemeData handymenTheme = ThemeData(
-  scaffoldBackgroundColor: Colors.white,
+  scaffoldBackgroundColor: Colors.white,                                  // default background color
   textTheme: const TextTheme(
-    displayLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-    titleLarge: TextStyle(fontSize: 30.0, fontStyle: FontStyle.normal),
-    bodyMedium: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+    displayLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),   // large display text
+    titleLarge: TextStyle(fontSize: 30.0, fontStyle: FontStyle.normal),     // title display text
+    bodyMedium: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),              // body/paragraph text
   ),
   colorScheme: ColorScheme.fromSwatch(
     primarySwatch: const MaterialColor(0xFFEC1A1A, {
@@ -22,3 +23,4 @@ final ThemeData handymenTheme = ThemeData(
     }),
   ).copyWith(secondary: Colors.white),
 );
+// -----------------------Rachel-------------------------

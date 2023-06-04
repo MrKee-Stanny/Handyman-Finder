@@ -17,6 +17,7 @@ class _SigninScreenState extends State<SigninScreen> {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
 
+  //-------------------David---------------------------
   validateForm() {
     if (!emailTextEditingController.text.contains('@')) {
       Fluttertoast.showToast(msg: 'Email address is not valid');
@@ -26,7 +27,9 @@ class _SigninScreenState extends State<SigninScreen> {
       loginUserNow();
     }
   }
+  //---------------------David-------------------------------
 
+  // ------------------Izzy-------------------------------
   loginUserNow() async {
     showDialog(
         context: context,
@@ -34,45 +37,43 @@ class _SigninScreenState extends State<SigninScreen> {
         builder: (BuildContext c) {
           return ProgressDialog(message: "Logging in, please wait...");
         });
+    try {
+        final User? firebaseUser = (await firebaseAuthObject
+                .signInWithEmailAndPassword(
+                    email: emailTextEditingController.text.trim(),
+                    password: passwordTextEditingController.text.trim())
+                )
+            .user;
 
-try {
-    final User? firebaseUser = (await firebaseAuthObject
-            .signInWithEmailAndPassword(
-                email: emailTextEditingController.text.trim(),
-                password: passwordTextEditingController.text.trim())
-            )
-        .user;
+        if (firebaseUser != null) {
+          DatabaseReference usersRef =
+              FirebaseDatabase.instance.ref().child('users');
 
-    if (firebaseUser != null) {
-      DatabaseReference usersRef =
-          FirebaseDatabase.instance.ref().child('users');
+          usersRef.child(firebaseUser.uid).once().then((userKey) {
+            final snap = userKey.snapshot;
 
-      usersRef.child(firebaseUser.uid).once().then((userKey) {
-        final snap = userKey.snapshot;
-
-        if (snap.value != null) {
-          currentFirebaseUser = firebaseUser;
-          Fluttertoast.showToast(msg: 'Log in successful');
-          Navigator.push(context,
-              MaterialPageRoute(builder: (BuildContext c) => MySplashScreen()));
+            if (snap.value != null) {
+              currentFirebaseUser = firebaseUser;
+              Fluttertoast.showToast(msg: 'Log in successful');
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (BuildContext c) => MySplashScreen()));
+            } else {
+              Fluttertoast.showToast(msg: 'Email has no associated user account.');
+              firebaseAuthObject.signOut();
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (BuildContext c) => MySplashScreen()));
+            }
+          });
         } else {
-          Fluttertoast.showToast(msg: 'Email has no associated user account.');
-          firebaseAuthObject.signOut();
-          Navigator.push(context,
-              MaterialPageRoute(builder: (BuildContext c) => MySplashScreen()));
-        }
-      });
-    } else {
-      Navigator.pop(context);
-      Fluttertoast.showToast(msg: "Log in failed");
-    }} catch (e) {
-      print(e);
-      Navigator.pop(context);
-      Fluttertoast.showToast(msg: "Error: " + e.toString());
-   
-    
-    }
+          Navigator.pop(context);
+          Fluttertoast.showToast(msg: "Log in failed");
+        }} catch (e) {
+          print(e);
+          Navigator.pop(context);
+          Fluttertoast.showToast(msg: "Error: " + e.toString());      
+      }
   }
+  //---------------------Izzy--------------------------------------
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +119,7 @@ try {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    // --------------------VICKY---------------------------------
                     TextField(
                       controller: emailTextEditingController,
                       style: TextStyle(
@@ -142,6 +144,7 @@ try {
                         ),
                       ),
                     ),
+                    // --------------------VICKY---------------------------------
                     TextField(
                       controller: passwordTextEditingController,
                       keyboardType: TextInputType.text,
@@ -176,7 +179,7 @@ try {
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white),
                       child: Text(
-                        'Next',
+                        'Sign In',
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.primary,
                           fontSize: 18,

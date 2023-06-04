@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// -------------------Hofni---------------------------------
 class LogoWidget extends StatelessWidget {
   const LogoWidget({super.key});
 
@@ -27,3 +28,4 @@ class LogoWidget extends StatelessWidget {
     );
   }
 }
+//-------------------------------Hofni---------------------------

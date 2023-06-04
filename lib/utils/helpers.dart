@@ -3,6 +3,7 @@ import 'package:handyman_finder/models/user_model.dart';
 import 'package:handyman_finder/utils/global.dart';
 
 class HelperMethods {
+  //--------------------Doctor--------------------
   static void readCurrentOnlineUserInfo() async {
     currentFirebaseUser = firebaseAuthObject.currentUser;
 
@@ -18,3 +19,4 @@ class HelperMethods {
     });
   }
 }
+//------------------------Doctor-------------------------

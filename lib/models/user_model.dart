@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 
+// -----------------Timo------------------------------
 class UserModel {
   String? id;
   String? firstName;
@@ -45,3 +46,5 @@ class UserModel {
     status = (snap.value as dynamic)["status"];
   }
 }
+
+// -----------------Timo------------------------------
