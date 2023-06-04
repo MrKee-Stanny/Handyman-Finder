@@ -134,6 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         title: Text('My Profile'),
       ),
+      
       drawer: Theme(
         data: Theme.of(context)
             .copyWith(canvasColor: Theme.of(context).colorScheme.primary),

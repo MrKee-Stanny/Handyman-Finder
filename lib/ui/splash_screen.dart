@@ -31,27 +31,25 @@ class _MySplashScreenState extends State<MySplashScreen> {
       });
     });
 
+    // ----------------------Vax------------------------------
     Timer(
       const Duration(seconds: 6),
       () async {
         if (await firebaseAuthObject.currentUser != null) {
           currentFirebaseUser = firebaseAuthObject.currentUser;
 
-          // print('POINT 1!!!!!!');
-
-          // inspect(firebaseAuthObject.currentUser);
-
           // home page
           Navigator.push(
               context, MaterialPageRoute(builder: (c) => MainScreen()));
         } else {
-          // send the user to the main screen
+          // send the user to the sign in screen
 
           Navigator.push(
               context, MaterialPageRoute(builder: (c) => SigninScreen()));
         }
       },
     );
+    //--------------------------Vax----------------------------------
   }
 
   @override

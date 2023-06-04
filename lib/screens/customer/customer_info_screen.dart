@@ -57,6 +57,7 @@ class _CustomerInfoScreenState extends State<CustomerInfoScreen> {
     return Scaffold(
       appBar: AppBar(title: Text('Home')),
       backgroundColor: Colors.white,
+      //------------------Paavo----------------------------
       drawer: Theme(
         data: Theme.of(context)
             .copyWith(canvasColor: Theme.of(context).colorScheme.primary),
@@ -66,6 +67,7 @@ class _CustomerInfoScreenState extends State<CustomerInfoScreen> {
           // role: userModelCurrentInfo!.role,
         ),
       ),
+      //-------------------Paavo------------------------------
       body: Column(
         children: [
           Container(
