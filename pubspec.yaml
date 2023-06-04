@@ -35,7 +35,7 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/images/logo.png"
+  image_path: "assets/images/light-logo.png"
   min_sdk_android: 21
 
   # rules and activating additional ones.

@@ -35,16 +35,12 @@ class _SigninScreenState extends State<SigninScreen> {
           return ProgressDialog(message: "Logging in, please wait...");
         });
 
+try {
     final User? firebaseUser = (await firebaseAuthObject
             .signInWithEmailAndPassword(
                 email: emailTextEditingController.text.trim(),
                 password: passwordTextEditingController.text.trim())
-            .catchError(
-      (msg) {
-        Navigator.pop(context);
-        Fluttertoast.showToast(msg: "Error: " + msg.toString());
-      },
-    ))
+            )
         .user;
 
     if (firebaseUser != null) {
@@ -69,6 +65,12 @@ class _SigninScreenState extends State<SigninScreen> {
     } else {
       Navigator.pop(context);
       Fluttertoast.showToast(msg: "Log in failed");
+    }} catch (e) {
+      print(e);
+      Navigator.pop(context);
+      Fluttertoast.showToast(msg: "Error: " + e.toString());
+   
+    
     }
   }
 
