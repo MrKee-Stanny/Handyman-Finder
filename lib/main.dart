@@ -6,17 +6,17 @@ import 'package:handyman_finder/ui/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
 
   runApp(
     MyApp(
-      child:
-         MaterialApp(
-          title: 'Handymen Finder',
-          theme: handymenTheme,
-          home: MySplashScreen(),
-          debugShowCheckedModeBanner: false,
-        ),
+      child: MaterialApp(
+        title: 'Handyman Finder',
+        theme: handymenTheme,
+        home: MySplashScreen(),
+        debugShowCheckedModeBanner: false,
+      ),
     ),
   );
 }

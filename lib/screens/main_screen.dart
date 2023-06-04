@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:handyman_finder/authentication/user_info_screen.dart';
+import 'package:handyman_finder/screens/customer/customer_info_screen.dart';
+import 'package:handyman_finder/screens/handyman/handyman_info_screen.dart';
+import 'package:handyman_finder/ui/splash_screen.dart';
+import 'package:handyman_finder/utils/global.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -21,7 +24,11 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       key: sKey,
       body: SafeArea(
-        child: UserInfoScreen(),
+        child: userModelCurrentInfo == null
+            ? MySplashScreen()
+            : userModelCurrentInfo!.role == 'Handyman'
+                ? HandymanInfoScreen()
+                : CustomerInfoScreen(),
       ),
     );
   }

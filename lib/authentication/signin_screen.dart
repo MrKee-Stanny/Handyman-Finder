@@ -76,108 +76,142 @@ class _SigninScreenState extends State<SigninScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Theme.of(context).colorScheme.primary,
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 10),
+              Container(
+                height: 300,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/pawa.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                  border: Border(
+                    bottom: BorderSide(width: 1.0, color: Colors.grey),
+                  ),
+                ),
+                child: SizedBox(),
+              ),
               Padding(
-                padding: const EdgeInsets.all(20),
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  height: 170,
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  children: [
+                    SizedBox(height: 10),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(0),
+                    //   // child: Image.asset(
+                    //   //   'assets/images/light-logo.png',
+                    //   //   height: 170,
+                    //   // ),
+                    // ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      "Sign In",
+                      style: TextStyle(
+                        fontSize: 26,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextField(
+                      controller: emailTextEditingController,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      decoration: const InputDecoration(
+                        labelText: "Email",
+                        hintText: "Email",
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white70),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white70),
+                        ),
+                        hintStyle: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 15,
+                        ),
+                        labelStyle: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                    TextField(
+                      controller: passwordTextEditingController,
+                      keyboardType: TextInputType.text,
+                      obscureText: true,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      decoration: const InputDecoration(
+                        labelText: "Password",
+                        hintText: "Password",
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white70),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white70),
+                        ),
+                        hintStyle: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 15,
+                        ),
+                        labelStyle: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    ElevatedButton(
+                      onPressed: () {
+                        validateForm();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white),
+                      child: Text(
+                        'Next',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (c) => const SignUpScreen()));
+                      },
+                      child: const Text(
+                        "Don't have an account? Register here",
+                        style: TextStyle(
+                          color: Colors.white70,
+                        ),
+                      ),
+                    ),
+                    // TextButton(
+                    //   onPressed: () {
+                    //     Navigator.push(
+                    //         context,
+                    //         MaterialPageRoute(
+                    //             builder: (c) => const CustomerInfoScreen()));
+                    //   },
+                    //   child: const Text(
+                    //     "View as Customer",
+                    //     style: TextStyle(
+                    //       color: Colors.white70,
+                    //     ),
+                    //   ),
+                    // )
+                  ],
                 ),
               ),
-              const SizedBox(height: 10),
-              const Text(
-                "Sign In",
-                style: TextStyle(
-                  fontSize: 26,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextField(
-                controller: emailTextEditingController,
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-                decoration: const InputDecoration(
-                  labelText: "Email",
-                  hintText: "Email",
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
-                  labelStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
-                ),
-              ),
-              TextField(
-                controller: passwordTextEditingController,
-                keyboardType: TextInputType.text,
-                obscureText: true,
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-                decoration: const InputDecoration(
-                  labelText: "Password",
-                  hintText: "Password",
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
-                  labelStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
-                ),
-              ),
-              SizedBox(height: 15),
-              ElevatedButton(
-                onPressed: () {
-                  validateForm();
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                ),
-                child: const Text(
-                  'Next',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (c) => const SignUpScreen()));
-                },
-                child: const Text(
-                  "Don't have an account? Register here",
-                  style: TextStyle(
-                    color: Colors.black87,
-                  ),
-                ),
-              ),
-            
             ],
           ),
         ),

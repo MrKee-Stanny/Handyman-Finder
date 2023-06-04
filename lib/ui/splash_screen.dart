@@ -6,6 +6,7 @@ import 'package:handyman_finder/authentication/signin_screen.dart';
 import 'package:handyman_finder/utils/global.dart';
 import 'package:handyman_finder/utils/helpers.dart';
 import 'package:handyman_finder/screens/main_screen.dart';
+import 'package:handyman_finder/widgets/logo_widget.dart';
 
 class MySplashScreen extends StatefulWidget {
   @override
@@ -25,7 +26,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
     Timer(const Duration(seconds: 3), () {
       setState(() {
         welcomeText = 'Welcome to';
-        titleText = 'Handymen Finder';
+        titleText = 'Handyman Finder';
         boxHeight = 50;
       });
     });
@@ -36,12 +37,16 @@ class _MySplashScreenState extends State<MySplashScreen> {
         if (await firebaseAuthObject.currentUser != null) {
           currentFirebaseUser = firebaseAuthObject.currentUser;
 
-            //sends the user to home page
-            Navigator.push(
-                context, MaterialPageRoute(builder: (c) => MainScreen()));
-          
+          // print('POINT 1!!!!!!');
+
+          // inspect(firebaseAuthObject.currentUser);
+
+          // home page
+          Navigator.push(
+              context, MaterialPageRoute(builder: (c) => MainScreen()));
         } else {
-          // send the user to the sign in screen
+          // send the user to the main screen
+
           Navigator.push(
               context, MaterialPageRoute(builder: (c) => SigninScreen()));
         }
@@ -84,10 +89,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
                 ),
               ),
               SizedBox(height: boxHeight),
-              Image.asset(
-                'assets/images/logo.png',
-                height: 170,
-              ),
+              LogoWidget(),
             ],
           ),
         ),

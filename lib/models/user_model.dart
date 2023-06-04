@@ -11,7 +11,6 @@ class UserModel {
   String? address;
   String? skill;
   String? displayPhotoUrl;
-  String? accountStatus;
   String? role;
   String? status;
 
@@ -27,7 +26,6 @@ class UserModel {
     this.skill,
     this.displayPhotoUrl,
     this.role,
-    this.accountStatus,
     this.status,
   });
 
@@ -44,7 +42,6 @@ class UserModel {
     skill = (snap.value as dynamic)["skill"];
     displayPhotoUrl = (snap.value as dynamic)["displayPhotoUrl"];
     role = (snap.value as dynamic)["role"];
-    accountStatus = (snap.value as dynamic)["accountStatus"];
     status = (snap.value as dynamic)["status"];
   }
 }

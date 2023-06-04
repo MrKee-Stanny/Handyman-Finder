@@ -89,7 +89,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
         "email": emailTextEditingController.text.trim(),
         "phone": phoneTextEditingController.text.trim(),
         "role": selectedUserRole.trim(),
-        "accountStatus": "Verified",
         "displayPhotoUrl": "",
       };
 
